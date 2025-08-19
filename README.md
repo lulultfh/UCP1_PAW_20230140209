@@ -30,7 +30,7 @@
 ### CRUD in Database
 | Page | Screenshot |
 |---|---|
-| **GET** |<img width="1919" height="960" alt="image" src="https://github.com/user-attachments/assets/ab36a627-3947-4187-9ca2-f4b3ea5b051b" />|
+| **GET** |<img width="1919" height="955" alt="image" src="https://github.com/user-attachments/assets/01a8d62c-713e-45a9-b35f-2d89e53f137f" />|
 | **POST** |<img width="1919" height="962" alt="image" src="https://github.com/user-attachments/assets/911f0d9c-a54b-4116-886f-684a8b162232" />|
 | **PUT** |<img width="1919" height="958" alt="image" src="https://github.com/user-attachments/assets/f21424cd-e6e8-4b37-8ffe-427737dbc0f5" />|
 | **Delete** |<img width="1919" height="955" alt="image" src="https://github.com/user-attachments/assets/01a8d62c-713e-45a9-b35f-2d89e53f137f" />|
