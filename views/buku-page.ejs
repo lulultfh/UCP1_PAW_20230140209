@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <!-- Import Google Font Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Daftar Buku</title>
+
+    <style>
+      body {
+        background: linear-gradient(
+          0deg,
+          rgba(250, 249, 238, 1) 29%,
+          rgba(220, 207, 192, 1) 65%,
+          rgba(238, 238, 238, 1) 100%
+        );
+        background-attachment: fixed;
+        font-family: "Inter", sans-serif;
+      }
+
+      h1 {
+        font-weight: 600;
+        color: #4a4a4a;
+      }
+
+      .btn {
+        background-color: #D6A99D !important;
+        border-color: #D6A99D !important;
+        color: white !important;
+      }
+
+      .btn:hover {
+        background-color: #9CAFAA !important;
+        border-color: #9CAFAA !important;
+        color: white !important;
+      }
+
+      .list-group-item {
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 6px;
+        margin-bottom: 5px;
+      }
+
+      .form-section {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Daftar Buku</h1>
+      <p>Ini adalah halaman daftar buku.</p>
+
+      <!-- Form Tambah Buku -->
+      <form action="/buku-list/add" method="POST" class="form-inline mb-3">
+        <input type="text" name="judul" class="form-control mr-2" placeholder="Judul buku baru" required>
+        <button type="submit" class="btn btn-success">+ Tambah</button>
+      </form>
+
+      <% if (books && books.length > 0) { %>
+      <ul class="list-group">
+        <% books.forEach(function(book) { %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>ID: <%= book.id %> - <%= book.judul %></span>
+          <div class="d-flex">
+
+            <!-- Form Edit -->
+            <form action="/buku-list/edit/<%= book.id %>?_method=PUT" method="POST" class="mr-2 d-flex">
+              <input type="text" name="judul" value="<%= book.judul %>" class="form-control form-control-sm mr-1" required>
+              <button type="submit" class="btn btn-warning btn-sm">Edit</button>
+            </form>
+
+            <!-- Form Delete -->
+            <form action="/buku-list/delete/<%= book.id %>?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-danger btn-sm"
+                onclick="return confirm('Yakin mau hapus buku ini?')">
+                Delete
+              </button>
+            </form>
+
+          </div>
+        </li>
+        <% }); %>
+      </ul>
+      <% } else { %>
+      <p>Tidak ada Buku yang tersedia.</p>
+      <% } %>
+
+      <a href="/" class="btn btn-primary mt-3">Go to Home</a>
+    </div>
+  </body>
+</html>
